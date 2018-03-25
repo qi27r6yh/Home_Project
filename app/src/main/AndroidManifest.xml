@@ -16,13 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ChoiceForces">
-
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </activity>
+        <activity android:name=".PersonActivity" />
+        <activity
+            android:name=".BookActivity"
+            android:label="@string/title_activity_book"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

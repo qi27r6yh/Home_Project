@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button startButton; //кнопка перехода к активности с категории мини-игр
+    Button startButton, personButton, historyButton; //history для чтения предистории
     Intent intent;
 
     @Override
@@ -16,15 +16,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, "Это главный экран, с него можно перейти к выбору изучаемой силы", Toast.LENGTH_LONG).show();
+        Toast.makeText
+                (this, "Это главный экран, с него можно перейти к созданию персонажа и началу игры",
+                        Toast.LENGTH_LONG).show();
         startButton = (Button) findViewById(R.id.startButton);
-// по нажатию на кнопку будет осуществлен переход на активность с выобором категории мини-игр
-        startButton.setOnClickListener(new View.OnClickListener() {
+        personButton = (Button) findViewById(R.id.CreatePersonButton);
+        historyButton = (Button) findViewById(R.id.bookButton);
+
+        personButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this, ChoiceForces.class);
+                intent = new Intent(MainActivity.this, PersonActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
+       historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, BookActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }
